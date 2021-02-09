@@ -10,6 +10,7 @@ import Main from './Main';
 import User from './User';
 // import UserList from './UserList';
 import Footer from './Footer';
+import AddPostPopup from './AddPostPopup';
 
 import { api } from '../utils/api';
 import './App.css';
@@ -40,6 +41,28 @@ function App() {
       <Post title={post.title} body={post.body} />
     </PostContext.Provider>
   })
+
+  // Добавление нового поста
+  function handleAddPostSubmit(post) {
+    api.createPost(post)
+      .then((newPost) => {
+        setPosts([newPost, ...posts]);
+        setAddPostPopupOpen(false);
+      })
+      .catch(err => console.log(`Ошибка при создании нового поста: ${err}`))
+  }
+
+  // Хук для попапа добавления карточки
+  const [isAddPostPopupOpen, setAddPostPopupOpen] = React.useState(false);
+
+  function handleAddPostClick() {
+    setAddPostPopupOpen(true);
+  }
+
+  // Функция закрытия всех попапов
+  function closeAllPopups() {
+    setAddPostPopupOpen(false);
+  }
 
   // Список пользователей
 
@@ -72,12 +95,13 @@ function App() {
         <div className="page__container">
           <Header />
           <Route exact path="/">
-            <Main cards={renderedPosts}/>
+            <Main cards={renderedPosts} onAddPost={handleAddPostClick}/>
           </Route>
           <Route path="/users">
-            <Main cards={renderedUsers}/>
+            <Main cards={renderedUsers} />
           </Route>
           <Footer />
+          <AddPostPopup isOpen={isAddPostPopupOpen} onAddPost={handleAddPostSubmit} onClose={closeAllPopups} name="add-post" title="Добавить пост" />
         </div>  
       </div>
     </div>
