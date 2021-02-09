@@ -22,6 +22,15 @@ class Api {
       .then(res => this.showError(res))
   }
 
+    // Получить данные о пользователе по id
+  getUserById(id) {
+    return fetch(`${this.baseUrl}/users/${id}`, {
+      method: 'GET',
+      headers: this.headers
+    })
+      .then(res => this.showError(res))
+  }
+
   // Получить список всех постов в виде массива
   getPosts() {
     return fetch(`${this.baseUrl}/posts`, {

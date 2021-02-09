@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Link } from 'react-router-dom';
 
 import { PostContext } from '../contexts/PostContext';
-import { UserContext } from '../contexts/UserContext';
+import { user, UserContext } from '../contexts/UserContext';
 
 import Post from './Post';
 import Header from './Header';
@@ -38,7 +38,7 @@ function App() {
 
   const renderedPosts = posts.map((post) => {
     return <PostContext.Provider value={post} key={post.id}>
-      <Post title={post.title} body={post.body} />
+      <Post author={user.id} title={post.title} body={post.body} />
     </PostContext.Provider>
   })
 
@@ -102,7 +102,7 @@ function App() {
           </Route>
           <Route path="/users">
             <>
-            <Link exact to="/" className="link"><button type="submit" className="button button__goto">Список поcтов</button></Link>
+            <Link to="/" className="link"><button type="submit" className="button button__goto">Список поcтов</button></Link>
             </>
             <Main cards={renderedUsers} />
           </Route>

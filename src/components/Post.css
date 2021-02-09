@@ -1,6 +1,7 @@
 .post {
-  width: 200px;
+  width: 100%;
   color: #000;
+  border-bottom: 1px solid #000;
 }
 
 .post__title {
@@ -13,4 +14,8 @@
   font-size: 18px;
   font-weight: 500;
   line-height: 20px;
+}
+
+.post__author {
+  margin: 10px 0;
 }
