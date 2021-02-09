@@ -4,7 +4,7 @@ function Main(props) {
   return (
     <main className="content">
       <ul className="cards">
-        {props.cards}
+        {props.posts}
       </ul>
     </main>
   );

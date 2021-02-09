@@ -1,0 +1,16 @@
+.post {
+  width: 200px;
+  color: #000;
+}
+
+.post__title {
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 26px;
+}
+
+.post__text {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 20px;
+}
