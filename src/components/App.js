@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 
 import { PostContext } from '../contexts/PostContext';
 import { UserContext } from '../contexts/UserContext';
@@ -95,9 +95,15 @@ function App() {
         <div className="page__container">
           <Header />
           <Route exact path="/">
+            <>
+              <Link to="/users" className="link"><button type="submit" className="button button__goto">Список пользователей</button></Link>
+            </>
             <Main cards={renderedPosts} onAddPost={handleAddPostClick}/>
           </Route>
           <Route path="/users">
+            <>
+            <Link exact to="/" className="link"><button type="submit" className="button button__goto">Список поcтов</button></Link>
+            </>
             <Main cards={renderedUsers} />
           </Route>
           <Footer />
