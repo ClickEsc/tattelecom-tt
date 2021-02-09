@@ -8,7 +8,6 @@ import Post from './Post';
 import Header from './Header';
 import Main from './Main';
 import User from './User';
-// import UserList from './UserList';
 import Footer from './Footer';
 import AddPostPopup from './AddPostPopup';
 
@@ -82,7 +81,7 @@ function App() {
         })
         .catch(err => console.log(`Ошибка при запросе списка пользователей: ${err}`))
     }, []);
-  
+
     const renderedUsers = users.map((user) => {
       return <UserContext.Provider value={user} key={user.id}>
         <User username={user.username} name={user.name} city={user.address.city} company={user.company.name} website={user.website} phone={user.phone} email={user.email} />
