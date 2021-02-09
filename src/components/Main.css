@@ -1,7 +1,25 @@
 .content {
+  box-sizing: border-box;
   width: 100%;
   height: max-content;
   padding: 20px 30px 20px 20px;
   background-color: #fff;
   border: 2px solid rgba(0, 128, 107, 0.788);
+}
+
+.profile__add-button {
+  margin: 48px 37px 36px;
+  padding: 13px 0;
+  width: 40%;
+  color: #fff;
+  font-size: 18px;
+  line-height: 22px;
+  background-color: rgba(11, 126, 111, 0.87);
+  outline: none;
+  border: none;
+}
+
+.profile__add-button:hover {
+  background-color: rgba(19, 129, 96, 0.534);
+  cursor: pointer;
 }
