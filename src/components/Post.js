@@ -12,7 +12,7 @@ function Post(props) {
   function handleAuthor(res) {
     setAuthor(res);
   }
-    
+  
   React.useEffect(() => {
     api.getUserById(post.userId)
       .then((res) => {
@@ -26,7 +26,7 @@ function Post(props) {
     <li className="post">
       <h2 className="post__title">{post.title}</h2>
       <p className="post__text">{post.body}</p>
-      <p className="post__author">Автор поста: {author}</p>
+      <p className="post__author">Автор поста: { author ? author : 'Вы' }</p>
     </li>
   );
 }
