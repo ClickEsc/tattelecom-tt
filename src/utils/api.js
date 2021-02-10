@@ -60,8 +60,8 @@ class Api {
   }
 
   // Получить список фотографий
-  getPhotos() {
-    return fetch(`${this.baseUrl}/photos`, {
+  getPhotos(id) {
+    return fetch(`${this.baseUrl}/albums/${id}/photos`, {
       method: 'GET',
       headers: this.headers
     })

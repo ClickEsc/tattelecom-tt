@@ -3,11 +3,16 @@ import { Route, Link } from 'react-router-dom';
 
 import { PostContext } from '../contexts/PostContext';
 import { user, UserContext } from '../contexts/UserContext';
+import { album, AlbumContext } from '../contexts/AlbumContext';
+import { PhotoContext } from '../contexts/PhotoContext';
 
 import Post from './Post';
 import Header from './Header';
 import Main from './Main';
 import User from './User';
+import Album from "./Album";
+import Gallery from "./Gallery";
+import Photo from "./Photo";
 import Footer from './Footer';
 import AddPostPopup from './AddPostPopup';
 
@@ -88,6 +93,55 @@ function App() {
       </UserContext.Provider>    
     })
 
+  // Список альбомов
+
+  const [albums, setAlbums] = React.useState([]);
+
+  function handleAlbums(res) {
+    setAlbums(res);
+  }
+    
+  React.useEffect(() => {
+    api.getAlbums()
+      .then((res) => {
+        const initialAlbums = res.map((item) => {
+          return item
+        });
+          handleAlbums(initialAlbums);
+        })
+        .catch(err => console.log(`Ошибка при запросе списка альбомов: ${err}`))
+    }, []);
+
+    const renderedAlbums = albums.map((album) => {
+      return <AlbumContext.Provider value={album} key={album.id}>
+        <Album title={album.title} />   
+      </AlbumContext.Provider>  
+    })
+
+  // Фотографии
+  const [photos, setPhotos] = React.useState([]);
+
+  function handlePhotos(res) {
+    setPhotos(res);
+  }
+    
+  React.useEffect(() => {
+    api.getPhotos(1)
+      .then((res) => {
+        const initialPhotos = res.map((item) => {
+          return item
+        });
+          handlePhotos(initialPhotos);
+        })
+        .catch(err => console.log(`Ошибка при запросе фотографий: ${err}`))
+    }, []);
+
+    const renderedPhotos = photos.map((photo) => {
+      return <PhotoContext.Provider value={photo} key={photo.id}>
+        <Photo title={photo.title} url={photo.url} albumId={album.id}/>   
+      </PhotoContext.Provider>  
+   })
+
   return (
     <div className="App">
       <div className="page">
@@ -104,6 +158,15 @@ function App() {
             <Link to="/" className="link"><button type="submit" className="button button__goto">Список поcтов</button></Link>
             </>
             <Main cards={renderedUsers} />
+          </Route>
+          <Route path="/albums">
+            <>
+            <Link to="/" className="link"><button type="submit" className="button button__goto">Список поcтов</button></Link>
+            </>
+            <Main cards={renderedAlbums} />
+          </Route>
+          <Route path="/photos" > 
+            <Gallery cards={renderedPhotos} />
           </Route>
           <Footer />
           <AddPostPopup isOpen={isAddPostPopupOpen} onAddPost={handleAddPostSubmit} onClose={closeAllPopups} name="add-post" title="Добавить пост" />

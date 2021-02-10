@@ -1,0 +1,13 @@
+.album {
+ border-bottom: 1px solid #000;
+}
+
+.album__title {
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 26px;
+}
+
+.album__author {
+  margin: 10px 0;
+}
