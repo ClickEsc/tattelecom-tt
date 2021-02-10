@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashRouter, Route, Link } from 'react-router-dom';
+import { Switch, Route, Link } from 'react-router-dom';
 
 import { PostContext } from '../contexts/PostContext';
 import { user, UserContext } from '../contexts/UserContext';
@@ -147,27 +147,33 @@ function App() {
       <div className="page">
         <div className="page__container">
           <Header />
-          <Route exact path="/">
-            <>
-              <Link to="/users" className="link"><button type="submit" className="button button__goto">Список пользователей</button></Link>
-            </>
-            <Main cards={renderedPosts} onAddPost={handleAddPostClick}/>
-          </Route>
-          <Route path="/users">
-            <>
-            <Link to="/" className="link"><button type="submit" className="button button__goto">Список поcтов</button></Link>
-            </>
-            <Main cards={renderedUsers} />
-          </Route>
-          <Route path="/albums">
-            <>
-            <Link to="/" className="link"><button type="submit" className="button button__goto">Список поcтов</button></Link>
-            </>
-            <Main cards={renderedAlbums} />
-          </Route>
-          <Route path="/photos" > 
-            <Gallery cards={renderedPhotos} />
-          </Route>
+          <Switch>
+            <Route exact path="/">
+              <>
+                <div className="nav">
+                  <Link to="/users" className="link"><button type="submit" className="button button__goto">Список пользователей</button></Link>
+                  <Link to="/albums" className="link"><button type="submit" className="button button__goto_albums">Альбомы</button></Link>
+                  <Link to="/photos" className="link"><button type="submit" className="button button__goto_photos">Фото</button></Link>
+                </div>
+              </>
+              <Main cards={renderedPosts} onAddPost={handleAddPostClick}/>
+            </Route>
+            <Route path="/users">
+              <>
+              <Link to="/" className="link"><button type="submit" className="button button__goto">Список поcтов</button></Link>
+              </>
+              <Main cards={renderedUsers} />
+            </Route>
+            <Route path="/albums">
+              <>
+              <Link to="/" className="link"><button type="submit" className="button button__goto">Список поcтов</button></Link>
+              </>
+              <Main cards={renderedAlbums} />
+            </Route>
+            <Route path="/photos" > 
+              <Gallery cards={renderedPhotos} />
+            </Route>
+          </Switch>
           <Footer />
           <AddPostPopup isOpen={isAddPostPopupOpen} onAddPost={handleAddPostSubmit} onClose={closeAllPopups} name="add-post" title="Добавить пост" />
         </div>  

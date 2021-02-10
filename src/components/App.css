@@ -16,10 +16,15 @@
   max-width: 1080px;
 }
 
+.nav {
+  margin-bottom: 0;
+  display: flex;
+}
+
 .button {
-  margin: 0 auto;
+  margin: 0;
   padding: 13px 0;
-  width: 40%;
+  width: 300px;
   color: #fff;
   font-size: 18px;
   line-height: 22px;
@@ -28,6 +33,14 @@
   outline: none;
   border: none;
   border-top-right-radius: 30px;
+}
+
+.button__goto_albums {
+  border-top-left-radius: 30px;
+}
+
+.button__goto_photos {
+  border-top-left-radius: 30px;
 }
   
 .button:hover {
