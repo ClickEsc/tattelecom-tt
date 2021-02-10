@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/tattelecom-tt/static/css/main.dca053f8.chunk.css",
-    "main.js": "/tattelecom-tt/static/js/main.b385a757.chunk.js",
-    "main.js.map": "/tattelecom-tt/static/js/main.b385a757.chunk.js.map",
+    "main.js": "/tattelecom-tt/static/js/main.0f827ad3.chunk.js",
+    "main.js.map": "/tattelecom-tt/static/js/main.0f827ad3.chunk.js.map",
     "runtime-main.js": "/tattelecom-tt/static/js/runtime-main.1e640c44.js",
     "runtime-main.js.map": "/tattelecom-tt/static/js/runtime-main.1e640c44.js.map",
-    "static/js/2.65098b23.chunk.js": "/tattelecom-tt/static/js/2.65098b23.chunk.js",
-    "static/js/2.65098b23.chunk.js.map": "/tattelecom-tt/static/js/2.65098b23.chunk.js.map",
+    "static/js/2.5384db51.chunk.js": "/tattelecom-tt/static/js/2.5384db51.chunk.js",
+    "static/js/2.5384db51.chunk.js.map": "/tattelecom-tt/static/js/2.5384db51.chunk.js.map",
     "static/js/3.6eab892d.chunk.js": "/tattelecom-tt/static/js/3.6eab892d.chunk.js",
     "static/js/3.6eab892d.chunk.js.map": "/tattelecom-tt/static/js/3.6eab892d.chunk.js.map",
     "index.html": "/tattelecom-tt/index.html",
     "static/css/main.dca053f8.chunk.css.map": "/tattelecom-tt/static/css/main.dca053f8.chunk.css.map",
-    "static/js/2.65098b23.chunk.js.LICENSE.txt": "/tattelecom-tt/static/js/2.65098b23.chunk.js.LICENSE.txt",
+    "static/js/2.5384db51.chunk.js.LICENSE.txt": "/tattelecom-tt/static/js/2.5384db51.chunk.js.LICENSE.txt",
     "static/media/header__logo.03c2ebdc.png": "/tattelecom-tt/static/media/header__logo.03c2ebdc.png"
   },
   "entrypoints": [
     "static/js/runtime-main.1e640c44.js",
-    "static/js/2.65098b23.chunk.js",
+    "static/js/2.5384db51.chunk.js",
     "static/css/main.dca053f8.chunk.css",
-    "static/js/main.b385a757.chunk.js"
+    "static/js/main.0f827ad3.chunk.js"
   ]
 }
