@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom';
+import { HashRouter, Route, Link } from 'react-router-dom';
 
 import { PostContext } from '../contexts/PostContext';
 import { user, UserContext } from '../contexts/UserContext';
